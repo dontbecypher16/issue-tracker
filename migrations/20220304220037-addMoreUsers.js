@@ -1,15 +1,10 @@
+"use strict";
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
       "TestUsers",
       [
-        {
-          firstName: "John",
-          lastName: "Doe",
-          email: "ghost@gmail.com",
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
         {
           firstName: "Mary",
           lastName: "Jane",
