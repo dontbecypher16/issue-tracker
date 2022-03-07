@@ -1,6 +1,15 @@
 import React from "react";
-import { Box, Grid, Button, DataTable, Sidebar, TextInput } from "grommet";
-import { Search } from "grommet-icons";
+import {
+  Box,
+  Grid,
+  Button,
+  DataTable,
+  Sidebar,
+  TextInput,
+  Text,
+  Heading,
+} from "grommet";
+import { Search, Menu } from "grommet-icons";
 
 function App() {
   const [sort, setSort] = React.useState({
@@ -51,59 +60,52 @@ function App() {
     },
   ];
   return (
-    <Box>
-      <Grid
-        rows={["xxsmall", "medium", "xsmall"]}
-        columns={["small", "auto"]}
-        areas={[
-          ["header", "header"],
-          ["sidebar", "main"],
-          ["footer", "footer"],
-        ]}
-        gap="small"
+    <Grid
+      rows={["auto"]}
+      columns={["300px", "auto"]}
+      areas={[["sidebar", "main"]]}
+      gap="small"
+      pad="small"
+      height="100vh"
+    >
+      <Sidebar
+        background="light-5"
+        gridArea="sidebar"
+        header={
+          <Box direction="flex" align="center" gap="xlarge">
+            <Heading size="small">BeeGone</Heading>
+            <Menu />
+          </Box>
+        }
+        footer={<Text>&copy; Beegone</Text>}
       >
-        <Box background="brand" gridArea="header">
-          Header
-        </Box>
+        <Grid gap="small">
+          <Button color="dark-1" hoverIndicator="light-1" primary>
+            Milestones
+          </Button>
+          <Button color="dark-1" hoverIndicator="light-1" primary>
+            Bugs
+          </Button>
+          <Button color="dark-1" hoverIndicator="light-1" primary>
+            Timesheet
+          </Button>
+          <Button color="dark-1" hoverIndicator="light-1" primary>
+            Feed
+          </Button>
+        </Grid>
+      </Sidebar>
 
-        <Sidebar background="light-5" gridArea="sidebar">
-          <Grid gap="small">
-            <Button color="dark-1" hoverIndicator="light-1" primary>
-              Milestones
-            </Button>
-            <Button color="dark-1" hoverIndicator="light-1" primary>
-              Bugs
-            </Button>
-            <Button color="dark-1" hoverIndicator="light-1" primary>
-              Timesheet
-            </Button>
-            <Button color="dark-1" hoverIndicator="light-1" primary>
-              Feed
-            </Button>
-          </Grid>
-        </Sidebar>
-
-        <Box pad="small" background="light-2" gridArea="main">
-          <Grid gap="small" columns={["auto", "medium", "small"]}>
-            <h1 style={{ margin: 0 }}>My Bugs</h1>
-            <TextInput icon={<Search />} placeholder="search ..." />
-            <Button color="dark-1" hoverIndicator="light-1" primary>
-              Submit Bug
-            </Button>
-          </Grid>
-          <DataTable
-            columns={columns}
-            data={DATA}
-            sort={sort}
-            onSort={setSort}
-          />
-        </Box>
-
-        <Box background="dark-2" gridArea="footer">
-          Footer
-        </Box>
-      </Grid>
-    </Box>
+      <Box pad="small" background="light-2" gridArea="main">
+        <Grid gap="small" columns={["auto", "medium", "small"]}>
+          <h1 style={{ margin: 0 }}>My Bugs</h1>
+          <TextInput icon={<Search />} placeholder="search ..." />
+          <Button color="dark-1" hoverIndicator="light-1" primary>
+            Submit Bug
+          </Button>
+        </Grid>
+        <DataTable columns={columns} data={DATA} sort={sort} onSort={setSort} />
+      </Box>
+    </Grid>
   );
 }
 
