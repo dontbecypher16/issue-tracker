@@ -1,3 +1,53 @@
+/* @media screen and (min-width: 1024px) {
+} */
 body {
   margin: 0;
 }
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-areas: "sidebar main";
+  padding: 30px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* @media screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    margin: 0;
+  }
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-areas: "sidebar main";
+    padding: 30px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    margin: 0;
+  }
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-areas: "sidebar main";
+    padding: 0px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+} */
+
+/* // <Grid
+//   rows={["auto"]}
+//   columns={["300px", "auto"]}
+//   areas={[["sidebar", "main"]]}
+//   gap="small"
+//   pad="small"
+//   height="100vh"
+// > */

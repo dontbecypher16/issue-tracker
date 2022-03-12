@@ -60,15 +60,9 @@ function App() {
     },
   ];
   return (
-    <Grid
-      rows={["auto"]}
-      columns={["300px", "auto"]}
-      areas={[["sidebar", "main"]]}
-      gap="small"
-      pad="small"
-      height="100vh"
-    >
+    <div className="main-grid">
       <Sidebar
+        className="Sidebar-S"
         background="light-5"
         gridArea="sidebar"
         header={
@@ -96,16 +90,21 @@ function App() {
       </Sidebar>
 
       <Box pad="small" background="light-2" gridArea="main">
-        <Grid gap="small" columns={["auto", "medium", "small"]}>
+        <Grid gap="small" columns={["auto", "auto", "145px"]} align="center">
           <h1 style={{ margin: 0 }}>My Bugs</h1>
-          <TextInput icon={<Search />} placeholder="search ..." />
-          <Button color="dark-1" hoverIndicator="light-1" primary>
+          <TextInput icon={<Search />} placeholder="search ..." size="small" />
+          <Button
+            color="dark-1"
+            hoverIndicator="light-1"
+            fill="vertical"
+            primary
+          >
             Submit Bug
           </Button>
         </Grid>
         <DataTable columns={columns} data={DATA} sort={sort} onSort={setSort} />
       </Box>
-    </Grid>
+    </div>
   );
 }
 
